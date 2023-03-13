@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>cloud-demo</artifactId>
+    <groupId>cn.itcast.demo</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>order-service</artifactId>
+
+  <dependencies>
+    <!-- 引入sentinel -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+    </dependency>
+
+    <!-- 引入sentinel监听nacos -->
+    <dependency>
+      <groupId>com.alibaba.csp</groupId>
+      <artifactId>sentinel-datasource-nacos</artifactId>
+    </dependency>
+
+    <!-- 导入 Feign 客户端依赖 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+
+    <!-- 引入HttpClient(Feign的连接池)的依赖 -->
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-httpclient</artifactId>
+    </dependency>
+
+    <!-- 导入 nacos客户端依赖包 -->
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+
+    <!--        &lt;!&ndash; 引入EureKa客户端依赖 &ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.cloud</groupId>-->
+    <!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+    <!--        </dependency>-->
+
+    <!-- springboot-Web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- mysql驱动 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <!--mybatis-->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+    </dependency>
+
+    <!-- 引入 自己写 的feign的统一的api -->
+    <dependency>
+      <groupId>cn.itcast.demo</groupId>
+      <artifactId>frign-api</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

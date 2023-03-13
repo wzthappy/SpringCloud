@@ -1,0 +1,46 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: itemservice
+
+  datasource:
+    url: jdbc:mysql://192.168.200.130:3306/heima?useSSL=false
+    username: root
+    password: 18729231365wzt
+    driver-class-name: com.mysql.jdbc.Driver  # mysql 5 - 版本的
+
+  # redis
+  redis:
+    host: 192.168.200.130  # redis服务地址
+    port: 6379 # redis服务器连接端口
+    password: 18729231365wzt  # redis密码
+    database: 0 # redis数据库的索引 (默认为0)
+    timeout: 1800000 # 连接超时时间 (毫秒)
+    lettuce:
+      pool:
+        max-active: 20  # 连接池最大连接数 (使用负数表示没有限制)
+        max-wait: -1 # 最大堵塞等待时间 (负数表示没有限制)
+        max-idle: 5 # 连接池中的最大空闲连接
+        min-idle: 0 # 连接池中的最小空间连接
+
+# canal  实现监听MySQL(已开启binlog)数据的变化 ， canal 这个服务自己已经指定了数据库
+canal:
+  destination: heima # canal实例名称，要跟canal-server运行是设置的destination一致
+  server: 192.168.200.130:11111 # canal 地址
+
+mybatis-plus:
+  type-aliases-package: com.heima.item.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: auto
+
+
+logging:
+  level:
+    com.heima: debug  # 日志级别
+  pattern:
+    dateformat: HH:mm:ss:SSS

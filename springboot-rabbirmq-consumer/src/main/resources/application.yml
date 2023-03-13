@@ -1,0 +1,13 @@
+# 配置Rabbitmq的基本信息
+spring:
+  rabbitmq:
+    host: 192.168.200.130 # ip  <- 这是我linux的ip
+    port: 5672 # 端口
+    username: wzt # 用户名 (默认guest)
+    password: wzt # 密码  (默认guest)
+    virtual-host: /wztcast # 虚拟机 (默认/)
+
+    listener:
+      simple:
+        acknowledge-mode: manual  # 设置手动签收
+        prefetch: 1  # 表示消费端每次从队列中拉取1条消息来消费，直到手动确认消费完毕后，才会继续拉取下2条消息

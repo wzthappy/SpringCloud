@@ -1,0 +1,11 @@
+# 配置Rabbitmq的基本信息
+spring:
+  rabbitmq:
+    host: 192.168.200.130 # ip  <- 这是我linux的ip
+    port: 5672 # 端口
+    username: wzt # 用户名 (默认guest)
+    password: wzt # 密码  (默认guest)
+    virtual-host: /wztcast # 虚拟机 (默认/)
+
+    publisher-confirm-type: correlated # 开启确认模式
+    publisher-returns: true # 开启回调模式
